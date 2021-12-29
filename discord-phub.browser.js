@@ -9,6 +9,7 @@ class NSFWElement{
         this.url = url;
         this.category = category;
         this.type = findLinkType(url);
+        return { url: this.url }
     }
 }
 
