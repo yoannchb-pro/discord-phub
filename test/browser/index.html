@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Discord PHub test</title>
+    <style>
+      p {
+        display: block;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Current file type: <span id="fileType"></span></p>
+    <p>Current category: <span id="categoryType"></span></p>
+    <img id="image" src="placeholder" />
+    <script src="./../../discord-phub.browser.js"></script>
+    <script>
+      //If you want to generate unique media each time else set it to false (by default it's false)
+      const nsfw = new RandomPHUB((unique = true));
+      const pussy = nsfw.getRandomInCategory("pussy"); //will return a link to a pussy media
+
+      // Gifs will also loaded in an img element
+      document.getElementById("fileType").innerHTML = pussy.type;
+      document.getElementById("image").setAttribute("src", pussy.url);
+      document.getElementById("categoryType").innerHTML = pussy.category;
+    </script>
+  </body>
+</html>
